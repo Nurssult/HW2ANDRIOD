@@ -1,17 +1,27 @@
 fun main() {
-    val morningNotification = 51
-    val eveningNotification = 135
+    val child = 5
+    val adult = 28
+    val senior = 87
 
-    printNotificationSummary(morningNotification)
-    printNotificationSummary(eveningNotification)
+    val isMonday = true
+
+    println("The movie ticket price for a person aged $child is \$${ticketPrice(child, isMonday)}.")
+    println("The movie ticket price for a person aged $adult is \$${ticketPrice(adult, isMonday)}.")
+    println("The movie ticket price for a person aged $senior is \$${ticketPrice(senior, isMonday)}.")
 }
 
-
-fun printNotificationSummary(numberOfMessages: Int) {
-    if (numberOfMessages < 100) {
-        println("You have $numberOfMessages notifications.");
+fun ticketPrice(age: Int, isMonday: Boolean): Int {
+    if(age <= 12){
+        return 15
     }
-    else {
-        println("Your phone is blowing up! You have 99+ notifications.");
+    if(13 <= age && age <= 60 && isMonday){
+        return 25
     }
+    if(13 <= age && age <= 60 && !isMonday){
+        return 30
+    }
+    if(60 <= age && age <= 100){
+        return 20
+    }
+    else return -1
 }
